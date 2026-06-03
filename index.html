@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重力加速度可視化シミュレーター</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #1e1e1e;
+            color: #fff;
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        h1 {
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+        canvas {
+            border: 2px solid #444;
+            background-color: #111;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+        .controls {
+            margin-top: 15px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            background: #2a2a2a;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label { font-size: 12px; margin-bottom: 5px; color: #aaa; }
+        button {
+            padding: 6px 15px;
+            background-color: #ff2e63;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #e02855;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>重力加速度シミュレーター</h1>
+    
+    <canvas id="simCanvas" width="800" height="500"></canvas>
+
+    <div class="controls">
+        <div class="control-group">
+            <label for="gravity">重力 (g): <span id="gravityVal">0.5</span></label>
+            <input type="range" id="gravity" min="0" max="2" step="0.1" value="0.5">
+        </div>
+        <div class="control-group">
+            <label for="bounce">反発係数 (e): <span id="bounceVal">0.7</span></label>
+            <input type="range" id="bounce" min="0" max="1" step="0.05" value="0.7">
+        </div>
+        <button id="resetBtn">リセット</button>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
